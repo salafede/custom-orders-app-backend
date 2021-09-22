@@ -14,13 +14,10 @@ const optionsDB = {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
-    "auth": {"authSource": process.env.DB_AUTH},
-    "user": process.env.DB_USER,
-    "pass": process.env.DB_PASS
 }
 
 mongoose.connect(process.env.DB_URL, optionsDB)
-  .then(() => console.log(process.env.DB_USER + ' connected to MongoDB!'))
+  .then(() => console.log('connected to MongoDB!'))
   .catch(err=> console.error(err));
 
 // Handling websockets
@@ -52,4 +49,4 @@ app.get('*', (req, res) => {
 });
 
 // server start
-app.listen(port, () => console.log(`nodejs-express-backend-template: listening on http://localhost:${port}`));
+app.listen(port, () => console.log(`custom-orders-app-backend: listening on http://localhost:${port}`));
